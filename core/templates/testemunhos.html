@@ -17,12 +17,13 @@
                   <div class="content">
                     <p class="description">{{ c.mensagem }}</p>
                     <div class="star-icon mt-3">
-                      {% for i in 'range(c.nota)' %}
-                        <span><i class="lni-star-filled"></i></span>
+                      {% for i in "12345" %}
+                        {% if forloop.counter <= c.nota %}
+                          <span><i class="lni-star-filled"></i></span>
+                        {% else %}
+                          <span><i class="lni-star-half"></i></span>
+                        {% endif %}
                       {% endfor %}
-                      {% if c.nota < 5 %}
-                        <span><i class="lni-star-half"></i></span>
-                      {% endif %}
                     </div>
                   </div>
                 </div>
