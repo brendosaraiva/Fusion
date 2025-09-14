@@ -101,3 +101,24 @@ class Feature(Base):
     def __str__(self):
         return self.feature
 
+
+class Cliente(Base):
+    nome = models.CharField("Nome", max_length=30)
+    titulo = models.CharField("Título", max_length=100)
+    mensagem = models.CharField("Mensagem", max_length=300)
+    nota = models.IntegerField("Nota")
+    imagem = StdImageField("Imagem", upload_to=get_file_path, variations={
+        "thumb": {
+            "width": 72,
+            "height": 72,
+            "crop": True
+        }
+    })
+
+    class Meta:
+        verbose_name = "Cliente"
+        verbose_name_plural = "Clientes"
+
+    def __str__(self):
+        return self.nome
+

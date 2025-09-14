@@ -2,7 +2,7 @@ from django.views.generic import FormView
 from django.urls import reverse_lazy
 from django.contrib import messages
 
-from .models import Servico, Funcionario, Feature
+from .models import Servico, Funcionario, Feature, Cliente
 from .forms import ContatoForm
 
 
@@ -26,6 +26,8 @@ class IndexView(FormView):
         # Como "futuramente" o sistema possa ter mais features
         context["features_left"] = features[:int(total/2)]  # a primeira seção recebe a metade dos itens
         context["features_right"] = features[int(total/2):int(total)]  # a segunda recebe os últimos itens
+
+        context["clientes"] = Cliente.objects.order_by("?").all()
 
         # Está pronto para iterar os objetos no index
         return context
