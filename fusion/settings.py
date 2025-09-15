@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url  # utilizado para que servidor possa ler as informações
+# do host e utilizar o banco de dados.
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,6 +77,7 @@ WSGI_APPLICATION = "fusion.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+"""
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -84,6 +87,12 @@ DATABASES = {
         "HOST": "localhost",
         "PORT": "5432",
     }
+}
+"""
+# dj_database_url.config() -> vai ler por padrão as configurações de conexão do
+# servidor da hospedagem e vai passar os dados para acesso ao banco de dados.
+DATABASES = {
+    "default": dj_database_url.config()
 }
 
 
@@ -128,7 +137,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 # Email teste console
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 """
 # Email produção
@@ -146,3 +155,7 @@ DEFAULT_FROM_EMAIL = 'contato@fusion.com.br'  # E-mail de contato
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Se caso algum superusuário esteja logado no painel administrativo, vai ser
+# redirecionado para página index.
+LOGOUT_REDIRECT_URL = "index"
