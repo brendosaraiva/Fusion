@@ -18,7 +18,6 @@ import dj_database_url  # utilizado para que servidor possa ler as informações
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -35,10 +34,8 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "core",
-
-    "django adminlte",  # Adiciona admin
-    "django adminlte theme",  # Adiciona novo tema
-
+    #"django adminlte",  # Adiciona admin
+    #"django adminlte theme",  # Adiciona novo tema
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -94,12 +91,16 @@ DATABASES = {
     }
 }
 """
+
 # dj_database_url.config() -> vai ler por padrão as configurações de conexão do
 # servidor da hospedagem e vai passar os dados para acesso ao banco de dados.
 DATABASES = {
-    "default": dj_database_url.config()
+    'default': dj_database_url.config(
+        default="postgresql://fusion_db_1wgv_user:OLt9RskPNJhcZTMJXavO7zWfqUXTOm7S@dpg-d34qpt63jp1c73ehel8g-a.oregon-postgres.render.com/fusion_db_1wgv",
+        conn_max_age=600,
+        conn_health_checks=True, test_options={'NAME': 'fusion-db'}
+    )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
