@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-l!to&%w!&3d@(ihn35b--*r_vr$a^^#-x$oxk-xlm%&o*h0@3l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://fusion-bvs.onrender.com"]
 
 
 # Application definition
