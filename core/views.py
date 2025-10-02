@@ -36,11 +36,11 @@ class IndexView(FormView):
     def form_valid(self, form, *args, **kwargs):
         form.send_email()  # Vai enviar o E-mail
         messages.success(self.request, "E-mail enviado com sucesso")  # Exibirá uma mensagem dizendo que funcionou
-        return super(IndexView, self).form_valid(form, *args, **kwargs)  # Uma vez validado, retornará o formulário com
-        # as informações para serem apresentadas no template "index".
+        return super(IndexView, self).form_valid(form, *args, **kwargs)  # Uma vez validado, retornará
+        # a mensagem de sucesso na página onde o formulário se encontra, redirect (redirecionamento) na página index.
 
     # Se o formulário for inválido
     def form_invalid(self, form, *args, **kwargs):
         messages.error(self.request, "Erro ao enviar e-mail")  # Exibirá uma mensagem dizendo que falhou
-        return super(IndexView, self).form_valid(form, *args, **kwargs)  # Uma vez validado, retornará o formulário com
-        # as informações de erro para serem apresentadas no template "index".
+        return super(IndexView, self).form_invalid(form, *args, **kwargs)  # Uma vez invalidado, retornará
+        # a mensagem de erro na página onde o formulário se encontra, redirect (redirecionamento) na página index.
