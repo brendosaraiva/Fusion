@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-l!to&%w!&3d@(ihn35b--*r_vr$a^^#-x$oxk-xlm%&o*h0@3l"
+SECRET_KEY = "insira_sua_secret_key_aqui"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -85,8 +85,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "fusion",
-        "USER": "geek",
-        "PASSWORD": "university",
+        "USER": "seu_usuario",
+        "PASSWORD": "sua_senha",
         "HOST": "localhost",
         "PORT": "5432",
     }
@@ -97,9 +97,9 @@ DATABASES = {
 # servidor da hospedagem e vai passar os dados para acesso ao banco de dados.
 DATABASES = {
     'default': dj_database_url.config(
-        default="postgresql://fusion_db_1wgv_user:OLt9RskPNJhcZTMJXavO7zWfqUXTOm7S@dpg-d34qpt63jp1c73ehel8g-a.oregon-postgres.render.com/fusion_db_1wgv",
+        default="Insira link do seu banco de dados feito/colocado na sua empresa de hospedagem aqui",
         conn_max_age=600,
-        conn_health_checks=True, test_options={'NAME': 'fusion-db'}
+        conn_health_checks=True, test_options={'NAME': 'nome_do_banco_de_dados'}
     )
 }
 
