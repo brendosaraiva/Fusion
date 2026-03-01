@@ -27,7 +27,7 @@ SECRET_KEY = "insira_sua_secret_key_aqui"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["fusion-bvs.onrender.com"]
+ALLOWED_HOSTS = ["link_do_seu_site"]
 
 
 # Application definition
