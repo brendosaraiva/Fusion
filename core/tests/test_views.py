@@ -1,5 +1,5 @@
 from django.test import TestCase
-from django.test import Client
+from django.test import Client  # simula o navegador ao realizar os métodos http (GET, POST, PUT/PATCH, DELETE e etc...)
 from django.urls import reverse_lazy
 
 
